@@ -1,16 +1,16 @@
 class Solution {
     
-    public boolean bfs(int s,ArrayList<Integer>[] adj,boolean[] vis){
-        vis[s]=true;
+    public boolean bfs(int start,boolean[] vis, ArrayList<Integer>[] adj){
+        
+        vis[start]=true;
         Queue<int[]> q=new LinkedList<>();
-        q.offer(new int[]{s,-1});
+        q.offer(new int[]{start,-1});
         
         while(!q.isEmpty()){
             int[] curr=q.poll();
             int node=curr[0];
             int parent=curr[1];
-        
-        
+            
             for(int i=0;i<adj[node].size();i++){
                 int neigh=adj[node].get(i);
                 if(!vis[neigh]){
@@ -20,15 +20,15 @@ class Solution {
                     return true;
                 }
             }
-        
-            
         }
+        
+        
         return false;
-        
-        
     }
+
     public boolean isCycle(int V, int[][] edges) {
         // Code here
+        
         ArrayList<Integer>[] adj=new ArrayList[V];
         for(int i=0;i<V;i++){
             adj[i]=new ArrayList<>();
@@ -44,14 +44,13 @@ class Solution {
         boolean[] vis=new boolean[V];
         for(int i=0;i<V;i++){
             if(!vis[i]){
-               if (bfs(i,adj,vis)){
-                    return true;
-                    
-                }
-                
+                if(bfs(i,vis,adj)) return true;
             }
         }
+        
         return false;
+        
     }
+    
     
 }

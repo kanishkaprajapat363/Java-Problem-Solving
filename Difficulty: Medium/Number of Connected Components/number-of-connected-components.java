@@ -1,17 +1,17 @@
 class Solution {
-    public void dfs(int s,boolean[] vis,ArrayList<ArrayList<Integer>> adj){
-        vis[s]=true;
-        for(int i=0;i<adj.get(s).size();i++){
-            int neigh=adj.get(s).get(i);
+    
+    public void dfs(int node,boolean[] vis,ArrayList<ArrayList<Integer>> adj){
+        vis[node]=true;
+        for(int i=0;i<adj.get(node).size();i++){
+            int neigh=adj.get(node).get(i);
             if(!vis[neigh]){
                 dfs(neigh,vis,adj);
             }
         }
-        
     }
+    
     int countConnected(int V, ArrayList<ArrayList<Integer>> edges) {
-        // code here
-        ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
+       ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
         for(int i=0;i<V;i++){
             adj.add(new ArrayList<>());
         }
@@ -24,7 +24,6 @@ class Solution {
             adj.get(v).add(u);
         }
         
-        
         int count=0;
         boolean[] vis=new boolean[V];
         
@@ -34,7 +33,9 @@ class Solution {
                 count++;
             }
         }
+        
         return count;
+        
         
     }
 }

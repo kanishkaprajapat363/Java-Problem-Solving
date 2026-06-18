@@ -1,45 +1,44 @@
 class Solution {
 
-    int solve(int i, int j, int[][] mat, int[][] dp) {
-        //MEMOIZATION
-        int m = mat[0].length;
-
-        if (j < 0 || j >= m)
-            return (int)-1e9;
-
-        if (i == 0)
-            return mat[0][j];
-
-        if (dp[i][j] != -1)
-            return dp[i][j];
-
-        int up = solve(i - 1, j, mat, dp);
-
-        int leftDiag = solve(i - 1, j - 1, mat, dp);
-
-        int rightDiag = solve(i - 1, j + 1, mat, dp);
-
-        return dp[i][j] =
-                mat[i][j] +
-                Math.max(up,
-                Math.max(leftDiag, rightDiag));
-    }
-
     public int maximumPath(int[][] mat) {
-
+        //space optimization
         int n = mat.length;
         int m = mat[0].length;
 
-        int[][] dp = new int[n][m];
+        int[] prev = new int[m];
 
-        for (int[] row : dp)
-            java.util.Arrays.fill(row, -1);
+        for (int j = 0; j < m; j++) {
+            prev[j] = mat[0][j];
+        }
+
+        for (int i = 1; i < n; i++) {
+
+            int[] curr = new int[m];
+
+            for (int j = 0; j < m; j++) {
+
+                int up = prev[j];
+
+                int leftDiag = (j > 0)
+                        ? prev[j - 1]
+                        : (int)-1e9;
+
+                int rightDiag = (j < m - 1)
+                        ? prev[j + 1]
+                        : (int)-1e9;
+
+                curr[j] = mat[i][j]
+                        + Math.max(up,
+                        Math.max(leftDiag, rightDiag));
+            }
+
+            prev = curr;
+        }
 
         int ans = 0;
 
-        for (int j = 0; j < m; j++) {
-            ans = Math.max(ans,
-                    solve(n - 1, j, mat, dp));
+        for (int val : prev) {
+            ans = Math.max(ans, val);
         }
 
         return ans;

@@ -1,0 +1,16 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/number-of-distinct-islands/1?page=2&category=Graph&sortBy=submissions">Number of Distinct Islands</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">Given a grid of size <strong>n × m</strong>, consisting of characters 'L' and 'W', where 'L' represents Land and 'W' represents Water, find the number of <strong>distinct</strong> islands in the grid.</span></p>
+<p><span style="font-size: 18px;">An island is a group of one or more connected land cells. Two land cells are considered connected if they are adjacent horizontally or vertically (4-directional connectivity).</span></p>
+<ul>
+<li><span style="font-size: 18px;">Two islands are considered distinct if their <strong>shapes</strong> are <strong>different.</strong></span></li>
+<li><span style="font-size: 18px;">If two shapes become same after rotation, then they are considered different.&nbsp; In the second example below, the two corner L shaps are considered different.</span></li>
+</ul>
+<p><strong><span style="font-size: 18px;">Examples :</span></strong></p>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>n = 4, m = 5<strong><br></strong></span><img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/929825/Web/Other/blobid0_1781703083.png" width="201" height="161"> <br><span style="font-size: 18px;"><strong><span style="font-size: 18px;">Output:</span> </strong></span><span style="font-size: 18px;">1</span>
+<span style="font-size: 18px;"><strong>Explanation: </strong></span><span style="font-size: 14pt;">The grid contains two islands. Both islands have the same shape (a 2 × 2 block of land), so they are counted as a single distinct island.</span>
+<span style="font-size: 18px;"><img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/929825/Web/Other/blobid1_1781703111.png" width="201" height="161"></span>
+</pre>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>n = 4, m = 5</span>
+<img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/929825/Web/Other/blobid0_1781761165.png" width="200" height="160"> <br><span style="font-size: 18px;"><strong><span style="font-size: 18px;">Output:</span> </strong></span><span style="font-size: 18px;">3</span>
+<span style="font-size: 18px;"><strong>Explanation: </strong>There are four islands in the grid. Two islands have the same shape, while the other two have different shapes. Therefore, the number of distinct island shapes is 3.<strong><br></strong><strong><img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/929825/Web/Other/blobid2_1781703222.png" width="199" height="159"></strong></span>
+</pre>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ n, m ≤ 500<br>grid[i][j] == L or grid[i][j] == W</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>DFS</code>&nbsp;<code>Graph</code>&nbsp;<code>BFS</code>&nbsp;<code>Data Structures</code>&nbsp;<code>Algorithms</code>&nbsp;
